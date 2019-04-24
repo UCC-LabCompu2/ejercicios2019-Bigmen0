@@ -18,26 +18,29 @@
     https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_output-->
 
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
-Nombre:
-Apellido:
-Sexo: Masculino Femenino
-Edad:
-Email:
-Usuario:
-Password:
-Confirmar Password:
+<form id="formulario_suscripcion">
+Nombre:<input type="text" name="nombre_suscriptor"><br>
+Apellido:<input type="text" name="apellido_suscriptor"><br>
+Sexo: <input type="radio" name="gender" value="male" checked="">Masculino<br><input type="radio" name="gender" value="female"> Femenino<br>
+Edad:<input type="number"  name="edad_suscriptor" min="0" max="120" step="1" value="18"><br>
+Email:<input type="email" name="email_suscriptor" ><br>
+Usuario:<input type="text" name="user_suscriptor"><br>
+Password:<input type="password" name="psw_suscriptor"><br>
+Confirmar Password:<input type="password" name="psw_suscriptor_confirma"><br>
 
-Tipo de servicio: Free / Standard / Premium
-Tema:
-Política
-Negocios
-Tecnología
-Salud
+    Tipo de servicio: <select name="tipo_servicio"><option value="free">Free</option>
+    <option value="standard">Standard</option>
+    <option value="premium">Premium</option></select> <br>
+Tema:<br>
+    <input type="checkbox" name="politica">Política<br>
+    <input type="checkbox" name="negocios">Negocios<br>
+    <input type="checkbox" name="tecnologia">Tecnología<br>
+    <input type="checkbox" name="salud">Salud<br>
+    <br>
+Agregue un comentario:<br><textarea name="comentario"></textarea><br>
 
-Agregue un comentario:
+    <button type="button" name="enviar">Boton de Enviar</button><br>
 
-Boton de Enviar
-
-
+</form>
 </body>
 </html>
