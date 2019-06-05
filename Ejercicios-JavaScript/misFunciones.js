@@ -85,3 +85,70 @@ function mostrar_ocultar(id_elem){
         document.getElementById("unDiv").style.display = 'block';
     }
 }
+
+function dibujarCircCuad() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle="#242424";
+    ctx.beginPath();
+    ctx.rect(0,0,30,40);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle="#af3679";
+    ctx.beginPath();
+    ctx.arc(canvas.width/2,canvas.height/2,20,0,2*Math.PI);
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.fillStyle="#F3FF6B";
+    ctx.arc(canvas.width/2,canvas.height/2,18,0,2*Math.PI);
+    ctx.fill();
+    ctx.closePath();
+}
+
+function dibujarCuadriculado(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.lineWidth=2;
+    ctx.fillStyle="#000";
+    ctx.beginPath();
+    for(var i=0;i<canvas.width;i+=10)
+    {
+
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,canvas.height);
+
+    }
+
+    for(var i=0;i<canvas.height;i+=10)
+    {
+        ctx.moveTo(0,i);
+        ctx.lineTo(canvas.width,i);
+    }
+    ctx.stroke();
+    ctx.closePath();
+
+}
+
+function dibujarImg() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    var x = document.getElementById("posicionX");
+    var y=document.getElementById("posicionY");
+
+    var img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload= function(){
+        ctx.drawImage(img,x,y);
+
+    }
+}
