@@ -114,7 +114,7 @@ function dibujarCuadriculado(){
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    ctx.lineWidth=2;
+    ctx.lineWidth=0.2;
     ctx.fillStyle="#000";
     ctx.beginPath();
     for(var i=0;i<canvas.width;i+=10)
@@ -151,4 +151,54 @@ function dibujarImg() {
         ctx.drawImage(img,x,y);
 
     }
+}
+
+var intervalo;
+var x;
+var y;
+var b;
+var a;
+function dibujar(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    dibujarCuadriculado();
+    linea();
+    if(x<0){
+        clearInterval(intervalo);
+    }
+}
+
+function animar(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    x=0;
+    a=-1*(canvas.height/canvas.width);
+    b=canvas.height;
+    intervalo = setInterval(dibujar, 33)
+}
+
+function linea(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle="#0072ff";
+    y = a * x  + b;
+    console.log({x,y});
+    ctx.fillRect(x,y,3,3);
+    x++;
+
+}
+
+function seno(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle="#0072ff";
+    y = math.sin(x/10)*canvas.height+canvas.height/2;
+    console.log({x,y});
+    ctx.fillRect(x,y,3,3);
+    x++;
 }
